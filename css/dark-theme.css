@@ -1,0 +1,129 @@
+/* === MODO OSCURO === */
+html.dark-mode, html.dark-mode body {
+  --bg-primary: #0a1a2a;
+  --bg-secondary: #11223a;
+  --text-primary: #d0e0ff;
+  --text-secondary: #a0c0e0;
+  --card-bg: #1a2b44;
+  --border: #335577;
+  --accent: #4d8cff;
+  --navbar-bg: #0c1f33;
+  --footer-bg: #0c1f33;
+  --spinner-primary: #c466ff;
+  --spinner-secondary: #00d0ff;
+  --particle-color: #87ceeb;
+  --button-bg: #4d8cff;
+  --button-hover: #3a76e0;
+}
+
+/* Fondo de tormenta */
+html.dark-mode body::before {
+  background-image: url('../images/storm-bg.jpg');
+  background-size: cover;
+  opacity: 0.4;
+}
+
+/* Overlay de tormenta */
+html.dark-mode body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(10, 25, 40, 0.4), rgba(5, 13, 26, 0.8));
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Rayos */
+html.dark-mode {
+  animation: lightning 40s infinite alternate;
+}
+
+@keyframes lightning {
+  0%, 99%, 100% { box-shadow: none; }
+  97% { box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.4); }
+}
+
+/* Partículas de lluvia (con dirección) */
+html.dark-mode .particle {
+  width: 2px !important;
+  height: 15px !important;
+  background: #87ceeb;
+  box-shadow: 0 0 10px rgba(135, 206, 235, 0.7);
+  animation: rain linear infinite;
+  opacity: 0.7;
+  transform: rotate(20deg); /* Simula viento */
+}
+
+@keyframes rain {
+  0% { transform: translateY(-20px) rotate(20deg); opacity: 0.5; }
+  100% { transform: translateY(100vh) rotate(20deg); opacity: 0; }
+}
+
+/* Secciones */
+html.dark-mode header,
+html.dark-mode section,
+html.dark-mode footer,
+html.dark-mode .data-item,
+html.dark-mode .insights li,
+html.dark-mode .about-content {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark-mode .nav-link {
+  color: var(--text-secondary) !important;
+}
+
+html.dark-mode .nav-link:hover,
+html.dark-mode .nav-link.active {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+html.dark-mode footer {
+  background-color: var(--footer-bg) !important;
+}
+
+html.dark-mode .spinner1 {
+  background-color: #1a1a1a;
+}
+
+/* Asegurar que el contenedor de partículas cubra toda la pantalla */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gotas de lluvia con dirección (viento) */
+@keyframes rain {
+  0% {
+    transform: translateY(-20px) rotate(20deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100vh) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+/* Rayos ocasionales */
+html.dark-mode {
+  animation: lightning 40s infinite alternate;
+}
+
+@keyframes lightning {
+  0%, 99%, 100% { box-shadow: none; }
+  97% { box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.4); }
+}
